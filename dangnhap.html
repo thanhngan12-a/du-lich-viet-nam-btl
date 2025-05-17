@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Nhập</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #89e2f8, #ffffff);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .khung_form {
+            background: white;
+            padding: 40px;
+            padding-right: 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .khung_form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #89e2f8;
+        }
+        .khung_form input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .khung_form button {
+            width: 60%;
+            background-color: #89e2f8;
+            color: white;
+            border: none;
+            padding: 16px;
+            margin-top: 10px;
+            margin-left: 23%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .khung_form button:hover {
+            background-color: #6bc8e0;
+        }
+        span{
+            font-size: small;
+            color:red
+        }
+    </style>
+</head>
+<body>
+
+<div class="khung_form">
+    <h2>Đăng Nhập</h2>
+   
+        <input type="text" name="ten_dang_nhap" id="ten_dang_nhap" placeholder="Tên đăng nhập" required><br>
+        <span id="usertb"></span>
+        <input type="password" name="mat_khau" id="mat_khau" placeholder="Mật khẩu" required><br>
+        <span id="passtb"></span>
+        <button onclick="m1()" type="button" id="nut_dang_nhap">Đăng Nhập</button>
+</div>
+<script>
+ function m1(){
+    if(document.getElementById("ten_dang_nhap").value!==sessionStorage.getItem("tk")){
+        document.getElementById("passtb").innerText="Tài khoản hoặc mật khẩu không đúng";
+    }
+    if(document.getElementById("ten_dang_nhap").value===sessionStorage.getItem("tk")&&document.getElementById("mat_khau").value===sessionStorage.getItem("mk")){
+        sessionStorage.setItem("trangthai","hien")
+        alert("Đăng nhập thành công!")
+        window.location.href="index.html";
+    }
+ }
+</script>
+</body>
+</html>
